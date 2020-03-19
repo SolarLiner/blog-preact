@@ -2525,11 +2525,6 @@ bulma-tooltip@^3.0.2:
   resolved "https://registry.yarnpkg.com/bulma-tooltip/-/bulma-tooltip-3.0.2.tgz#2cf0abab1de2eba07f9d84eb7f07a8a88819ea92"
   integrity sha512-CsT3APjhlZScskFg38n8HYL8oYNUHQtcu4sz6ERarxkUpBRbk9v0h/5KAvXeKapVSn2dp9l7bOGit5SECP8EWQ==
 
-bulma@^0.7.5:
-  version "0.7.5"
-  resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.7.5.tgz#35066c37f82c088b68f94450be758fc00a967208"
-  integrity sha512-cX98TIn0I6sKba/DhW0FBjtaDpxTelU166pf7ICXpCCuplHWyu6C9LYZmL5PEsnePIeJaiorsTEzzNk3Tsm1hw==
-
 bulma@^0.8.0:
   version "0.8.0"
   resolved "https://registry.yarnpkg.com/bulma/-/bulma-0.8.0.tgz#ac1606431703a4761b18a4a2d5cc1fa864a2aece"
@@ -9215,12 +9210,12 @@ postcss@^7.0.0, postcss@^7.0.1, postcss@^7.0.14, postcss@^7.0.16, postcss@^7.0.2
     source-map "^0.6.1"
     supports-color "^6.1.0"
 
-preact-bulma@^1.2.0-next.1:
-  version "1.2.0-next.1"
-  resolved "https://registry.yarnpkg.com/preact-bulma/-/preact-bulma-1.2.0-next.1.tgz#72495d3387ac8de8df7454c2f145463cacf36b8f"
-  integrity sha512-H0HFogLrOXRDTU3H3OMzVaUr0W0PhEEpH6EhFW4FlZEpEkph9AcsyYNtP/MtJZLHn4bhHM8aYE8Wc0vGU6sPPg==
+preact-bulma@^2.0.0-next.0:
+  version "2.0.0-next.0"
+  resolved "https://registry.yarnpkg.com/preact-bulma/-/preact-bulma-2.0.0-next.0.tgz#99f645fd366f9bd13be7817dbab7de190d8d07dc"
+  integrity sha512-bhbY1l0AFgHLHkQ2Ht54Zggyu2XwjQYubJ9xtElbrxGc6DAgjSTvLhIafU1UptF410/voT7MXSIuHLeZgqIiOQ==
   dependencies:
-    bulma "^0.7.5"
+    bulma "^0.8.0"
     classnames "^2.2.6"
 
 preact-cli-plugin-netlify@^1.5.0:

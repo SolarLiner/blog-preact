@@ -53,7 +53,7 @@
     "markdown-to-jsx": "^6.11.0",
     "parse-md": "^2.0.4",
     "preact": "^10.3.4",
-    "preact-bulma": "^1.2.0-next.1",
+    "preact-bulma": "^2.0.0-next.0",
     "preact-cli-plugin-netlify": "^1.5.0",
     "preact-render-to-string": "^5.1.4",
     "preact-router": "^3.2.1"
