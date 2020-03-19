@@ -1,10 +1,10 @@
-import { h } from 'preact';
-import { Suspense } from 'preact/compat';
-import { usePrerenderData } from '@preact/prerender-data-provider';
-import Markdown from 'markdown-to-jsx';
-import { FormattedCodeBlock } from './formatted-code-block';
+import { h } from "preact";
+import { Suspense } from "preact/compat";
+import { usePrerenderData } from "@preact/prerender-data-provider";
+import Markdown from "markdown-to-jsx";
+import { FormattedCodeBlock } from "./formatted-code-block";
 
-import style from './style';
+import style from "./style";
 
 const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);

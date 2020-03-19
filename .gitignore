@@ -1,5 +1,8 @@
 node_modules
 /build
 /*.log
-
+**/*.css.d.ts
+**/*.sass.d.ts
+**/*.scss.d.ts
+**/*.less.d.ts
 package-lock.json

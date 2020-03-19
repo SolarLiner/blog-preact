@@ -1,18 +1,18 @@
-import { h } from 'preact';
-import { useState } from 'preact/hooks';
+import { h } from "preact";
+import { useState } from "preact/hooks";
 
-import { vs } from 'react-syntax-highlighter/dist/esm/styles/prism';
-import style from './style.css';
+import { vs } from "react-syntax-highlighter/dist/esm/styles/prism";
+import style from "./style.css";
 
 export function FormattedCodeBlock(props) {
-	const [component, setComponent] = useState(null);
-	if (component) {
-		return component;
-	}
-	if (!props.class) {
-		return (<code class={style.inline}>{props.children}</code>);
-	}
-	throw new Promise(resolve => {
+  const [component, setComponent] = useState(null);
+  if (component) {
+    return component;
+  }
+  if (!props.class) {
+    return (<code class={style.inline}>{props.children}</code>);
+  }
+  throw new Promise(resolve => {
 		let language = null;
 		const highlighter = import('react-syntax-highlighter/dist/esm/prism-light');
 		let languageSyntax;

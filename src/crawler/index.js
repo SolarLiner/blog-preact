@@ -36,11 +36,13 @@ function getPreview(data) {
 function getFolders(source) {
 	const isDirectory = source => fs.lstatSync(source).isDirectory();
 	const isFile = source => !fs.lstatSync(source).isDirectory();
+	/**@type (string|undefined) => string[] */
 	const getAllListings = source =>
 		fs.readdirSync(source).map(name => join(source, name));
-	let allContent = getAllListings(source);
+	/** @type string[] */
+	const allContent = getAllListings(source);
 	const edges = allContent.filter(isFile).map(file => {
-		const data = fs.readFileSync(file, 'utf-8');
+		const data = fs.readFileSync(file, "utf-8");
 		const id = file.substr(file.lastIndexOf(sep) + 1);
 		const format = getExtensionFromFilename(id);
 		return {

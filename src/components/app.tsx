@@ -1,24 +1,34 @@
-import { Component, h } from "preact";
-import { Router } from "preact-router";
+import { FunctionalComponent, h } from "preact";
+import { Route, Router } from "preact-router";
 import { Provider } from "@preact/prerender-data-provider";
 import Header from "./header";
 // Code-splitting is automated for routes
-import Home from "../routes/home";
-import Blogs from "../routes/blogs";
-import Blog from "../routes/blog";
-import Contact from "../routes/contact";
-import ContactSuccess from "../routes/contact-success";
+import HomeRoute from "../routes/home";
 import NotFoundPage from "../routes/notfound";
 
-export default class App extends Component {
+const App: FunctionalComponent = props => (
+  <Provider value={props}>
+    <div id="app">
+      <Header/>
+      <Router>
+        <Route path="/" component={HomeRoute}/>
+        <Route default component={NotFoundPage} type="404"/>
+      </Router>
+    </div>
+  </Provider>
+);
+export default App;
 
-	/** Gets fired when the route changes.
-	 *  @param {Object} event    "change" event from [preact-router](http://git.io/preact-router)
-	 *  @param {string} event.url  The newly routed URL
-	 */
-	handleRoute = e => {
+/*export default class App extends Component {
+
+	/!** Gets fired when the route changes.
+	 *  @param {Object} e    "change" event from [preact-router](http://git.io/preact-router)
+	 *  @param {string} e.url  The newly routed URL
+	 *!/
+	handleRoute: (e: RouterOnChangeArgs) => void = e => {
 		this.currentUrl = e.url;
 	};
+	private currentUrl: string;
 
 	render(props) {
 		return (
@@ -27,14 +37,14 @@ export default class App extends Component {
 					<Header />
 					<Router onChange={this.handleRoute}>
 						<Home path="/" />
-						<Blogs path="/blogs/" />
 						<Blog path="/blog/:name" />
-						<Contact path="/contact/" />
+						<Blogs path="/blog/" />
 						<ContactSuccess path="/contact/success" />
+						<Contact path="/contact/" />
 						<NotFoundPage type="404" default />
 					</Router>
 				</div>
 			</Provider>
 		);
 	}
-}
+}*/

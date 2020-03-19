@@ -16,5 +16,9 @@ module.exports = {
     "plugin:@typescript-eslint/recommended-requiring-type-checking",
     "prettier"
   ],
-  rules: { "no-console": isDev ? "warn" : "error" }
+  rules: {
+    "no-console": isDev ? "warn" : "error",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "@typescript-eslint/no-use-before-define": "off"
+  }
 };
