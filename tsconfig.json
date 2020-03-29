@@ -5,10 +5,12 @@
     "target": "es5",
     "jsx": "react",
     "jsxFactory": "h",
-    "allowJs": true
+    "allowJs": true,
+    "esModuleInterop": true
   },
   "include": [
     "./src/**/*.tsx",
-    "./src/**/*.ts"
+    "./src/**/*.ts",
+    "./crawler/*.ts"
   ]
 }

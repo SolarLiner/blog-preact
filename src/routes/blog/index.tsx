@@ -1,79 +1,70 @@
-import { h } from "preact";
-import { Suspense } from "preact/compat";
+import { Fragment, FunctionalComponent, h } from "preact";
 import { usePrerenderData } from "@preact/prerender-data-provider";
-import Markdown from "markdown-to-jsx";
+import Markdown from "../../components/Markdown";
 import { FormattedCodeBlock } from "./formatted-code-block";
+import { Container, Hero, Section } from "preact-bulma";
+import { MarkdownNode } from "md-crawler";
+import { Frontmatter } from "../../../crawler/types";
 
-import style from "./style";
+type Props = MarkdownNode<Frontmatter>;
 
-const blogs = (props) => {
-	const [data, isLoading] = usePrerenderData(props);
-	return (
-		<article class={style.blogcontainer}>
-			{getBlogBody(data, isLoading)}
-		</article>
-	);
+const blogs: FunctionalComponent<Props> = props => {
+  const [data, isLoading]: [Props, boolean] = usePrerenderData(props);
+  if (isLoading) {
+    return (
+      <Fragment>
+        <Hero.Hero>
+          <Hero.Body>
+            <h1 class="title">Loading...</h1>
+          </Hero.Body>
+        </Hero.Hero>
+      </Fragment>
+    );
+  } else {
+    return (
+      <Fragment>
+        <Hero.Hero bold={true}>
+          <Hero.Body>
+            <Container>
+              <h1 className="title">{data.blogTitle}</h1>
+              <h2 className="subtitle">{data.subtitle}</h2>
+              <p class="has-text-right">{data.author && (`by ${data.author}, `)}{humanReadableDate(data.date)}</p>
+            </Container>
+          </Hero.Body>
+        </Hero.Hero>
+        {getBlogBody(data)}
+      </Fragment>
+    );
+  }
 };
 
 function CodeBlock(props) {
-	const fallback = <pre><code>{props.children}</code></pre>;
-	if (typeof window === 'undefined') {
-		return (fallback);
-	}
-	return (
-		<Suspense fallback={fallback}>
-			<FormattedCodeBlock {...props} />
-		</Suspense>
-	);
+  const fallback = (
+    <pre>
+      <code>{props.children}</code>
+    </pre>
+  );
+  if (typeof window === "undefined") {
+    return fallback;
+  }
+  return <FormattedCodeBlock {...props} />;
 }
 
-function InlineImage({ alt, title, src }) {
-	return (
-		<div class={style.inlineImageContainer}>
-			<img class={style.inlineImage} src={src} alt={alt} />
-			{title && <span class={style.inlineImageTitle}>{title}</span>}
-		</div>
-	);
+function getBlogBody(data: Props) {
+  return (
+    <Section>
+      <Container>
+        <Markdown>{data.contents}</Markdown>
+      </Container>
+    </Section>
+  );
 }
 
-function getBlogBody(data, isLoading) {
-	if (isLoading) {
-		return (
-			<div class={style.loadingPlaceholder}>
-				<h1 class={`${style.blogtitle} loading`} >&nbsp;</h1>
-				<caption class={`${style.blogsubtitle} loading`}>&nbsp;</caption>
-				<div class={style.blogbody}>
-					<div class={`${style.loadingBody} loading`} />
-					<div class={`${style.loadingBody} loading`} />
-					<div class={`${style.loadingBody} loading`} />
-				</div>
-			</div>
-		);
-	}
-
-	if (data && data.data) {
-		const { details, content } = data.data;
-		return (
-			<div>
-				<h1 class={style.blogtitle}>{details.title}</h1>
-				{ details.subtitle && <caption class={style.blogsubtitle}>{details.subtitle}</caption> }
-				{ details.cover && <div class={style.blogcover} style={`background-image:url(${details.cover})`} /> }
-				<div class={style.blogbody}>
-					<Markdown options={{
-						overrides: {
-							img: {
-								component: InlineImage
-							},
-							code: {
-								component: CodeBlock
-							}
-						}
-					}}
-					>{ content }</Markdown>
-				</div>
-			</div>
-		);
-	}
+function humanReadableDate(d: Date | string): string {
+  if (typeof d === "string") d = new Date(d);
+  const months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+  const month = months[d.getMonth()];
+  return `${month} ${d.getDay()}, ${d.getFullYear()}`;
 }
 
 export default blogs;

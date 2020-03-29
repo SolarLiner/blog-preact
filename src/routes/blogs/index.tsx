@@ -1,7 +1,8 @@
-import { h } from "preact";
+import { Fragment, h } from "preact";
 import { Link } from "preact-router";
 import { usePrerenderData } from "@preact/prerender-data-provider";
-import style from "./style";
+
+const style = new Proxy<any>({}, { get: () => "" });
 
 const blogs = (props) => {
 	const [data, isLoading] = usePrerenderData(props);
@@ -27,23 +28,24 @@ function getBlogsListing(data, isLoading) {
 	if (data && data.data) {
 		const { data: blogs } = data;
 		return (
-			<>
+			<Fragment>
 				{blogs.edges.map(blog => (
-				<Link href={`/blog/${blog.id}`}>
-					<article>
-						<h2>{blog.details.title}</h2>
-						<div>
-							{
-								(blog.details.tags.substr(1, blog.details.tags.length - 2).split(',') || []).map(tag => <span class={style.tag}>{tag}</span>)
-							}
-						</div>
-						<p class={style.preview}>
-							{blog.preview}
-						</p>
-					</article>
-				</Link>
-			))}
-			</>
+					<Link href={`/blog/${blog.id}`}>
+						<article>
+							<h2>{blog.details.title}</h2>
+							<div>
+								{
+									(blog.details.tags.substr(1, blog.details.tags.length - 2).split(",") || []).map(tag => <span
+										class={style.tag}>{tag}</span>)
+								}
+							</div>
+							<p class={style.preview}>
+								{blog.preview}
+							</p>
+						</article>
+					</Link>
+				))}
+			</Fragment>
 		);
 	}
 }

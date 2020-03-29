@@ -3,6 +3,8 @@ const { join } = require("path");
 const fs = require("fs");
 const parseMD = require("parse-md").default;
 
+
+/*
 const [blogs] = generateFileList(join(__dirname, "content")).nodes;
 module.exports = () => {
   const pages = [
@@ -13,7 +15,7 @@ module.exports = () => {
       },
       data: blogs
     },
-    { url: "/blog/", data: blogs },
+    { url: "/blogs/", data: blogs },
     { url: "/contact/" },
     { url: "/contact/success" }
   ];
@@ -30,7 +32,7 @@ module.exports = () => {
         data = fs.readFileSync(join("content", "blog", blog.id), "utf-8").replace(/---(.*(\r)?\n)*---/, "");
       }
       return {
-        url: `/blog/${blog.id}`,
+        url: `/blogs/${blog.id}`,
         seo: blog.details,
         data: {
           details: blog.details,
@@ -41,4 +43,16 @@ module.exports = () => {
   );
 
   return pages;
+};
+*/
+
+module.exports = async () => {
+  require("ts-node/register");
+  const data = await require("./crawler").default(join(__dirname, "content", "blog"));
+  const blogs = data.map(({ filename, ...f }) => ({ ...f, blogTitle: f.title, url: join("/blogs", f.id) }));
+  return [
+    { url: "/", blogs },
+    { url: "/blogs", blogs },
+    ...blogs
+  ];
 };

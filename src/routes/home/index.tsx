@@ -1,9 +1,9 @@
 import { Fragment, FunctionalComponent, h } from "preact";
 import { usePrerenderData } from "@preact/prerender-data-provider";
 import { Box, Button, Control, Field, Level, Section, Tag } from "preact-bulma";
-import { Link, RouteProps, RouterProps } from "preact-router";
+import { Link } from "preact-router";
 import TitleCard from "../../components/TitleCard";
-import { BlogData } from "../../crawler/types";
+import { Frontmatter } from "../../../crawler/types";
 
 const LINKS = [
   {
@@ -32,15 +32,14 @@ const LINKS = [
   }*/
 ];
 
-interface Props extends RouterProps {
-  seo: { cover: string };
-  data: BlogData;
+interface Props {
+  blogs: Array<Frontmatter & { url: string }>;
 }
 
-const HomeRoute: FunctionalComponent<RouteProps<Props>> = props => {
-  const [data, isLoading] = usePrerenderData(props);
+const HomeRoute: FunctionalComponent<Props> = props => {
+  const [data, isLoading]: [Props, boolean] = usePrerenderData(props);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const blogs = isLoading ? {} : data.data;
+  const blogs: Props["blogs"] = isLoading ? [] : data.blogs;
   return (
     <Fragment>
       <TitleCard title={"Nathan Graule"} subtitle={"Developer, photographer, musician"}>
@@ -67,11 +66,11 @@ const HomeRoute: FunctionalComponent<RouteProps<Props>> = props => {
 
 export default HomeRoute;
 
-function humanReadableTagList(tags: string) {
-  return (tags.substr(1, tags.length - 2).split(",") || []).map(tag => <Tag color="dark">{tag}</Tag>);
+function humanReadableTagList(tags: string[]) {
+  return tags.map(tag => <Tag color="dark">{tag}</Tag>);
 }
 
-function getBlogListing(blogs, isLoading: boolean) {
+function getBlogListing(blogs: Props["blogs"], isLoading: boolean) {
   if (isLoading) {
     return (
       <Fragment>
@@ -81,15 +80,14 @@ function getBlogListing(blogs, isLoading: boolean) {
       </Fragment>
     );
   } else {
-    console.log(blogs);
     return (
       <Fragment>
-        {blogs.edges.map(blog => (
-          <Link href={`/blog/${blog.id}`}>
+        {blogs.map(blog => (
+          <Link href={blog.url}>
             <Box>
               <article>
-                <h2 class="title">{blog.details.title}</h2>
-                <div>{humanReadableTagList(blog.details.tags)}</div>
+                <h2 class="title">{blog.title}</h2>
+                <div>{humanReadableTagList(blog.tags)}</div>
               </article>
             </Box>
           </Link>

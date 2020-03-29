@@ -14,8 +14,8 @@ function getRandomOpacity() {
 }
 
 const SvgStar: FunctionalComponent<Props> = ({ position: [x, y], radius }) => {
-  const [timeoutID, setTimeoutID] = useState(-1);
-  const [opacity, setOpacity] = useState(getRandomOpacity());
+  const [timeoutID, setTimeoutID] = useState<number | NodeJS.Timeout>(-1);
+  const [opacity, setOpacity] = useState(1.0);
   useEffect(() => {
     function animate() {
       setOpacity(getRandomOpacity());
@@ -25,7 +25,7 @@ const SvgStar: FunctionalComponent<Props> = ({ position: [x, y], radius }) => {
     }
 
     setTimeoutID(setTimeout(animate, Math.random() * 3000));
-    return () => clearTimeout(timeoutID);
+    return () => clearTimeout(timeoutID as NodeJS.Timeout);
   }, []);
   const r = radius * opacity;
   return (

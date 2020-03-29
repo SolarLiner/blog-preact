@@ -1,0 +1,148 @@
+//Name:       Base16 Gruvbox Dark
+//Author:     Gordon Chiam (https://github.com/gchiam)
+//Modified for my own blog (solarliner.me) by Nathan Graule
+//
+//Prism template by Bram de Haan (http://atelierbram.github.io/syntax-highlighting/prism/)
+//Original Base16 color scheme by Chris Kempson (https://github.com/chriskempson/base16)
+
+@import "variables"
+
+code[class*="language-"],
+pre[class*="language-"]
+  font-family: $family-code
+  font-size: 14px
+  line-height: 1.375
+  direction: ltr
+  text-align: left
+  white-space: pre
+  word-spacing: normal
+  word-break: normal
+
+  -moz-tab-size: 4
+  -o-tab-size: 4
+  tab-size: 4
+
+  -webkit-hyphens: none
+  -moz-hyphens: none
+  -ms-hyphens: none
+  hyphens: none
+  background: $dark
+  color: $text
+
+
+pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
+code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection
+  text-shadow: none
+  background: #bdae93
+
+
+pre[class*="language-"]::selection, pre[class*="language-"] ::selection,
+code[class*="language-"]::selection, code[class*="language-"] ::selection
+  text-shadow: none
+  background: #bdae93
+
+
+pre[class*="language-"]
+  padding: 1em
+  margin: .5em 0
+  overflow: auto
+
+
+//:not(pre) > code[class*="language-"]
+//  padding: .1em
+//  border-radius: .3em
+
+.token
+  &.comment,
+  &.prolog,
+  &.doctype,
+  &.cdata
+    color: desaturate($primary, 30)
+
+
+  &.punctuation
+    color: #d5c4a1
+
+
+  &.namespace
+    opacity: .7
+
+
+  &.operator
+    color: lighten(desaturate($orange, 5), 10)
+
+  &.boolean,
+  &.number
+    color: $orange
+
+  &.property
+    color: $yellow
+
+  &.tag
+    color: $blue
+
+  &.string
+    color: $green
+
+  &.selector
+    color: $turquoise
+
+  &.attr-name
+    color: $orange
+
+  &.entity,
+  &.url,
+  .language-css &.string,
+  .style &.string
+    color: lighten(desaturate($green, 5), 10)
+
+
+  &.attr-value,
+  &.keyword,
+  &.control,
+  &.directive,
+  &.unit
+    color: $accent
+
+
+  &.statement,
+  &.regex,
+  &.atrule
+    color: $primary-light
+
+
+  &.placeholder,
+  &.variable
+    color: #458588
+
+
+  &.deleted
+    text-decoration: line-through
+
+
+  &.inserted
+    border-bottom: 1px dotted #fbf1c7
+    text-decoration: none
+
+
+  &.italic
+    font-style: italic
+
+
+  &.important,
+  &.bold
+    font-weight: bold
+
+
+  &.important
+    color: #cc241d
+
+
+  &.entity
+    cursor: help
+
+
+pre > code.highlight
+  outline: .4em solid #cc241d
+  outline-offset: .4em
+

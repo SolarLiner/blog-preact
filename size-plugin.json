@@ -1,0 +1,138 @@
+[
+  {
+    "timestamp": 1585438419294,
+    "files": [
+      {
+        "filename": "ssr-bundle.6c640.css",
+        "previous": 27019,
+        "size": 0,
+        "diff": -27019
+      },
+      {
+        "filename": "ssr-bundle.js",
+        "previous": 32467,
+        "size": 0,
+        "diff": -32467
+      },
+      {
+        "filename": "sw-esm.js",
+        "previous": 0,
+        "size": 741,
+        "diff": 741
+      },
+      {
+        "filename": "sw.js",
+        "previous": 0,
+        "size": 738,
+        "diff": 738
+      },
+      {
+        "filename": "bundle.32ddc.css",
+        "previous": 0,
+        "size": 26026,
+        "diff": 26026
+      },
+      {
+        "filename": "bundle.6c9f2.esm.js",
+        "previous": 0,
+        "size": 11797,
+        "diff": 11797
+      },
+      {
+        "filename": "polyfills.7484f.esm.js",
+        "previous": 0,
+        "size": 2012,
+        "diff": 2012
+      },
+      {
+        "filename": "route-blog/index.tsx.chunk.35f18.css",
+        "previous": 0,
+        "size": 783,
+        "diff": 783
+      },
+      {
+        "filename": "route-blog/index.tsx.chunk.d83c0.esm.js",
+        "previous": 0,
+        "size": 16387,
+        "diff": 16387
+      },
+      {
+        "filename": "route-blogs/index.tsx.chunk.85fbe.esm.js",
+        "previous": 0,
+        "size": 513,
+        "diff": 513
+      },
+      {
+        "filename": "route-home/index.tsx.chunk.d3a53.css",
+        "previous": 0,
+        "size": 159,
+        "diff": 159
+      },
+      {
+        "filename": "route-home/index.tsx.chunk.6abb9.esm.js",
+        "previous": 0,
+        "size": 1262,
+        "diff": 1262
+      },
+      {
+        "filename": "route-notfound/index.tsx.chunk.15a71.esm.js",
+        "previous": 0,
+        "size": 338,
+        "diff": 338
+      },
+      {
+        "filename": "bundle.30f6d.js",
+        "previous": 0,
+        "size": 11813,
+        "diff": 11813
+      },
+      {
+        "filename": "polyfills.b96b2.js",
+        "previous": 0,
+        "size": 2013,
+        "diff": 2013
+      },
+      {
+        "filename": "route-blog/index.tsx.chunk.2dc70.js",
+        "previous": 0,
+        "size": 16634,
+        "diff": 16634
+      },
+      {
+        "filename": "route-blogs/index.tsx.chunk.ed4f2.js",
+        "previous": 0,
+        "size": 510,
+        "diff": 510
+      },
+      {
+        "filename": "route-home/index.tsx.chunk.3615b.js",
+        "previous": 0,
+        "size": 1305,
+        "diff": 1305
+      },
+      {
+        "filename": "route-notfound/index.tsx.chunk.d0fc4.js",
+        "previous": 0,
+        "size": 341,
+        "diff": 341
+      }
+    ]
+  },
+  {
+    "timestamp": 1585437273202,
+    "files": [
+      {
+        "filename": "ssr-bundle.6c640.css",
+        "previous": 0,
+        "size": 27019,
+        "diff": 27019
+      },
+      {
+        "filename": "ssr-bundle.js",
+        "previous": 0,
+        "size": 32467,
+        "diff": 32467
+      }
+    ]
+  }
+]
