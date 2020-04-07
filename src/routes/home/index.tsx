@@ -37,9 +37,9 @@ interface Props {
 }
 
 const HomeRoute: FunctionalComponent<Props> = props => {
-  const [data, isLoading]: [Props, boolean] = usePrerenderData(props);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const blogs: Props["blogs"] = isLoading ? [] : data.blogs;
+  const [data, isLoading, error]: [Props, boolean, Error | boolean] = usePrerenderData(props);
+  console.log({ data, isLoading, error });
+  const blogs: Props["blogs"] = isLoading || !data ? [] : data.blogs;
   return (
     <Fragment>
       <TitleCard title={"Nathan Graule"} subtitle={"Developer, photographer, musician"}>
@@ -59,7 +59,12 @@ const HomeRoute: FunctionalComponent<Props> = props => {
           </Level.Item>
         </Level.Level>
       </TitleCard>
-      <Section id="blogs">{getBlogListing(blogs, isLoading)}</Section>
+      {(error && (
+        <Fragment>
+          <h1 className="title">An error occured.</h1>
+          <code>{`${error}`}</code>
+        </Fragment>
+      )) || <Section>{getBlogListing(blogs, isLoading)}</Section>}
     </Fragment>
   );
 };
