@@ -1,7 +1,6 @@
 import { Fragment, FunctionalComponent, h } from "preact";
 import { usePrerenderData } from "@preact/prerender-data-provider";
 import Markdown, { HeadingNode, MyRenderer } from "../../components/Markdown";
-import { FormattedCodeBlock } from "./formatted-code-block";
 import { Container, Hero, Menu, Section } from "preact-bulma";
 import { MarkdownNode } from "md-crawler";
 import { Frontmatter } from "../../../crawler/types";
@@ -43,23 +42,10 @@ const blogs: FunctionalComponent<Props> = props => {
   }
 };
 
-function Code(props) {
-  const fallback = (
-    <pre>
-      <code>{props.children}</code>
-    </pre>
-  );
-  if (typeof window === "undefined") {
-    return fallback;
-  }
-  return <FormattedCodeBlock {...props} />;
-}
-
 function getBlogBody(data: Props) {
   const [links, setLinks] = useState([]);
   const renderCB = useCallback((_, renderer: MyRenderer) => {
     const newlinks = renderer.links;
-    console.log("Got links", newlinks);
     if (!jsonifyEquals(newlinks, links))
       setLinks(newlinks);
   }, [links]);

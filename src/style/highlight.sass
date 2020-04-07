@@ -29,6 +29,17 @@ pre[class*="language-"]
   background: $dark
   color: $text
 
+code[class*="language-"]
+  counter-increment: listing
+
+  &::before
+    content: counter(listing) ". "
+    display: inline-block
+    font-weight: 300
+    color: darken($text, 20)
+    width: 3em
+    margin-left: auto
+    text-align: right
 
 pre[class*="language-"]::-moz-selection, pre[class*="language-"] ::-moz-selection,
 code[class*="language-"]::-moz-selection, code[class*="language-"] ::-moz-selection

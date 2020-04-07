@@ -1,6 +1,8 @@
-import { FunctionalComponent, h } from "preact";
+import { FunctionalComponent, h, toChildArray } from "preact";
 import Markup from "preact-markup";
 import marked from "marked";
+import { highlight, languages } from "prismjs";
+import "../style/highlight.sass";
 
 const DEFAULT_PROPS: Props = {
   markdownOptions: {},
@@ -10,14 +12,14 @@ const DEFAULT_PROPS: Props = {
 interface Props {
   markdownOptions: object;
   markupOptions: object;
-  onRender: (markup: string, renderer: MyRenderer) => void;
+  onRender?: (markup: string, renderer: MyRenderer) => void;
 }
 
 const Markdown: FunctionalComponent<Partial<Props>> = props => {
   const { markdownOptions, markupOptions, children } = Object.assign({}, DEFAULT_PROPS, props);
   const renderer = new MyRenderer();
   const markup = marked(
-    children,
+    toChildArray(children)[0].toString(),
     Object.assign(
       {},
       {
@@ -35,6 +37,7 @@ const Markdown: FunctionalComponent<Partial<Props>> = props => {
       {
         markup: `<article class="content">${markup}</article>`,
         type: "html",
+        trim: false,
         wrap: false
       },
       markupOptions
@@ -62,6 +65,12 @@ export class MyRenderer extends marked.Renderer {
     const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
     this.insertHeadingNode({ level, text, anchor: escapedText });
     return `<h${level} class="heading-anchor" id="${escapedText}">${text}</h${level}>`;
+  }
+
+  code(text, lang) {
+    console.log({ text, lang });
+    const code = highlight(text, languages[lang], lang).split("\n").map(line => `<code class="language-${lang}">${line}</code>`).join("\n");
+    return `<pre class="language-${lang}">${code}</pre>`;
   }
 
   private insertHeadingNode(node: Omit<HeadingNode, "children">, list = this.links): void {
