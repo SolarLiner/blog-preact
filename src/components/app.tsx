@@ -1,26 +1,26 @@
 import { FunctionalComponent, h } from "preact";
 import { Route, Router } from "preact-router";
 import { Provider } from "@preact/prerender-data-provider";
-import Header from "./header";
 import BlogsRoute from "../routes/blogs";
 import BlogRoute from "../routes/blog";
 // Code-splitting is automated for routes
 import HomeRoute from "../routes/home";
 import NotFoundPage from "../routes/notfound";
 
-const App: FunctionalComponent = props => (
-  <Provider value={props}>
-    <div id="app">
-      <Header/>
-      <Router>
-        <Route path="/" component={HomeRoute}/>
-        <Route path="/blogs" component={BlogsRoute}/>
-        <Route path="/blogs/:blog" component={BlogRoute}/>
-        <Route default component={NotFoundPage} type="404"/>
-      </Router>
-    </div>
-  </Provider>
-);
+const App: FunctionalComponent = props => {
+  return (
+    <Provider value={props}>
+      <div id="app">
+        <Router>
+          <Route path="/" component={HomeRoute}/>
+          <Route path="/blogs" component={BlogsRoute}/>
+          <Route path="/blogs/:blog" component={BlogRoute}/>
+          <Route default component={NotFoundPage} type="404"/>
+        </Router>
+      </div>
+    </Provider>
+  );
+};
 export default App;
 
 /*export default class App extends Component {

@@ -5,6 +5,7 @@ import { Container, Hero, Menu, Section } from "preact-bulma";
 import { MarkdownNode } from "md-crawler";
 import { Frontmatter } from "../../../crawler/types";
 import { useCallback, useState } from "preact/hooks";
+import Header from "../../components/header";
 
 type Props = MarkdownNode<Frontmatter>;
 
@@ -14,6 +15,9 @@ const blogs: FunctionalComponent<Props> = props => {
     return (
       <Fragment>
         <Hero.Hero color="dark">
+          <Hero.Header>
+            <Header/>>
+          </Hero.Header>
           <Hero.Body>
             <h1 class="title">Loading...</h1>
           </Hero.Body>
@@ -24,6 +28,9 @@ const blogs: FunctionalComponent<Props> = props => {
     return (
       <Fragment>
         <Hero.Hero bold={true} color="dark">
+          <Hero.Header>
+            <Header/>
+          </Hero.Header>
           <Hero.Body>
             <Container>
               <h1 className="title">{data.blogTitle}</h1>
@@ -44,11 +51,13 @@ const blogs: FunctionalComponent<Props> = props => {
 
 function getBlogBody(data: Props) {
   const [links, setLinks] = useState([]);
-  const renderCB = useCallback((_, renderer: MyRenderer) => {
-    const newlinks = renderer.links;
-    if (!jsonifyEquals(newlinks, links))
-      setLinks(newlinks);
-  }, [links]);
+  const renderCB = useCallback(
+    (_, renderer: MyRenderer) => {
+      const newlinks = renderer.links;
+      if (!jsonifyEquals(newlinks, links)) setLinks(newlinks);
+    },
+    [links]
+  );
   return (
     <Section>
       <div class="columns">
