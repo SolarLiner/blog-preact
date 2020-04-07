@@ -1,5 +1,5 @@
 html {
-  font-family: Helvetica Neue,arial,sans-serif;
+  font-family: Helvetica Neue, arial, sans-serif;
   color: #333;
   max-width: 728px;
   width: 100%;
@@ -22,7 +22,7 @@ a {
   line-height: 1;
 }
 
-.blogSubTitle{
+.blogSubTitle {
   color: #aaa;
   display: block;
   text-align: left;

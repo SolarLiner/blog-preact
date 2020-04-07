@@ -106,7 +106,7 @@ code.inline {
   width: 65%;
 }
 
-.inlineImageContainer{
+.inlineImageContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;

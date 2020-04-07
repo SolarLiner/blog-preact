@@ -69,7 +69,10 @@ export class MyRenderer extends marked.Renderer {
 
   code(text, lang) {
     console.log({ text, lang });
-    const code = highlight(text, languages[lang], lang).split("\n").map(line => `<code class="language-${lang}">${line}</code>`).join("\n");
+    const code = highlight(text, languages[lang], lang)
+      .split("\n")
+      .map(line => `<code class="language-${lang}">${line}</code>`)
+      .join("\n");
     return `<pre class="language-${lang}">${code}</pre>`;
   }
 

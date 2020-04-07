@@ -74,7 +74,9 @@ function getBlogListing(blogs: Props["blogs"], isLoading: boolean) {
   if (isLoading) {
     return (
       <Fragment>
-        <h2 class="title has-text-centered" id="blogs">Blogs</h2>
+        <h2 class="title has-text-centered" id="blogs">
+          Blogs
+        </h2>
         <Box>
           <p class="has-text-centered">Loading...</p>
         </Box>
@@ -83,7 +85,9 @@ function getBlogListing(blogs: Props["blogs"], isLoading: boolean) {
   } else {
     return (
       <Fragment>
-        <h2 class="title has-text-centered" id="blog">Blogs</h2>
+        <h2 class="title has-text-centered" id="blogs">
+          Blogs
+        </h2>
         {blogs.map(blog => (
           <Link href={blog.url}>
             <Box>

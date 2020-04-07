@@ -9,12 +9,12 @@
 }
 
 .pageTitle:after {
-  position: absolute;
-  bottom: -5px;
-  left: 0px;
-  content: '';
-  width: 75%;
-  border-bottom: 2px solid #FFC107;
+    position: absolute;
+    bottom: -5px;
+    left: 0px;
+    content: "";
+    width: 75%;
+    border-bottom: 2px solid #ffc107;
 }
 
 .pageBody {
@@ -22,11 +22,12 @@
   flex: 1;
 }
 
-.pageContact input, .pageContact textarea {
-  width: 100%;
-  font-size: 1.1rem;
-  padding: 8px;
-  border: 1px solid #999;
+.pageContact input,
+.pageContact textarea {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 8px;
+    border: 1px solid #999;
 }
 
 .pageContact .formWrapper {
@@ -44,7 +45,7 @@
 }
 
 @media all and (max-width: 728px) {
-	.formWrapper {
-		flex-direction: column;
-  }
+    .formWrapper {
+        flex-direction: column;
+    }
 }
