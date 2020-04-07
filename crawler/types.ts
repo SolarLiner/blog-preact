@@ -34,4 +34,6 @@ const _ftopt = t.partial({
 }, "Frontmatter (optional)");
 export const FrontmatterT = t.intersection([_ft, _ftopt], "Frontmatter");
 // Includes modifications from prerender-urls.js
-export type Frontmatter = t.TypeOf<typeof FrontmatterT> & { blogTitle: string; url: string };
+export type FrontmatterRaw = t.TypeOf<typeof FrontmatterT>;
+export type FrontmatterDerived = { readingTime: number; words: number };
+export type Frontmatter = FrontmatterRaw & FrontmatterDerived & { blogTitle: string; url: string };

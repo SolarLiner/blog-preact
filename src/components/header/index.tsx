@@ -7,7 +7,7 @@ const Header = () => {
 	const toggleActive = useCallback(() => setActive(!isActive), [isActive]);
 	return (
 		<Navbar.Navbar>
-			<Navbar.Brand onToggleExpand={toggleActive} active={isActive}>solarliner.me</Navbar.Brand>
+			<Navbar.Brand onToggleExpand={toggleActive} active={isActive} href="/">solarliner.me</Navbar.Brand>
 			<Navbar.Menu side="start">
 				<Navbar.MenuItem href="/#blog">Blog</Navbar.MenuItem>
 			</Navbar.Menu>

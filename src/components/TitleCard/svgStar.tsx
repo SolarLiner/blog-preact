@@ -14,18 +14,16 @@ function getRandomOpacity() {
 }
 
 const SvgStar: FunctionalComponent<Props> = ({ position: [x, y], radius }) => {
-  const [timeoutID, setTimeoutID] = useState<number | NodeJS.Timeout>(-1);
   const [opacity, setOpacity] = useState(1.0);
   useEffect(() => {
     function animate() {
-      setOpacity(getRandomOpacity());
-      setTimeoutID(
-        setTimeout(animate, Math.random() * 1900 + 100)
-      );
+      requestAnimationFrame(() => setOpacity(getRandomOpacity()));
     }
 
-    setTimeoutID(setTimeout(animate, Math.random() * 3000));
-    return () => clearTimeout(timeoutID as NodeJS.Timeout);
+    const intervalID = setInterval(animate, Math.random() * 2000 + 500);
+    return () => {
+      clearInterval(intervalID);
+    };
   }, []);
   const r = radius * opacity;
   return (
