@@ -1,9 +1,10 @@
-import { FunctionalComponent, h } from "preact";
+import { FunctionalComponent, h, RenderableProps } from "preact";
 import { Route, Router } from "preact-router";
 import { Provider } from "@preact/prerender-data-provider";
+
+// Code-splitting is automated for routes
 import BlogsRoute from "../routes/blogs";
 import BlogRoute from "../routes/blog";
-// Code-splitting is automated for routes
 import HomeRoute from "../routes/home";
 import NotFoundPage from "../routes/notfound";
 

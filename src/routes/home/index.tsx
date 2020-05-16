@@ -1,4 +1,4 @@
-import { Fragment, FunctionalComponent, h } from "preact";
+import { Fragment, FunctionalComponent, h, RenderableProps } from "preact";
 import { usePrerenderData } from "@preact/prerender-data-provider";
 import { Box, Button, Control, Field, Level, Section, Tag } from "preact-bulma";
 import { Link } from "preact-router";
@@ -33,11 +33,16 @@ const LINKS = [
 ];
 
 interface Props {
+  url: string;
   blogs: Array<Frontmatter & { url: string }>;
 }
 
+function transformProps(props: RenderableProps<Props>): RenderableProps<Props> {
+  return Object.assign({}, props, {url: props.url.substring(0, props.url.lastIndexOf("#"))})
+}
+
 const HomeRoute: FunctionalComponent<Props> = props => {
-  const [data, isLoading, error]: [Props, boolean, Error | boolean] = usePrerenderData(props);
+  const [data, isLoading, error]: [Props, boolean, Error | boolean] = usePrerenderData(transformProps(props));
   console.log({ data, isLoading, error });
   const blogs: Props["blogs"] = isLoading || !data ? [] : data.blogs;
   return (
