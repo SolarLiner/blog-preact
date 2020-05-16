@@ -12,7 +12,7 @@ const Header = () => {
       </Navbar.Brand>
       <Navbar.Menu active={isActive}>
         <Navbar.Menu side="start">
-          <Navbar.MenuItem href="/#blog">Blog</Navbar.MenuItem>
+          <Navbar.MenuItem href="/#blogs">Blog</Navbar.MenuItem>
         </Navbar.Menu>
         <Navbar.Menu side="end">
           <Navbar.MenuItem href="https://github.com/solarliner">GitHub</Navbar.MenuItem>
