@@ -10,12 +10,14 @@ const Header = () => {
       <Navbar.Brand onToggleExpand={toggleActive} active={isActive} href="/">
         solarliner.me
       </Navbar.Brand>
-      <Navbar.Menu side="start">
-        <Navbar.MenuItem href="/#blog">Blog</Navbar.MenuItem>
-      </Navbar.Menu>
-      <Navbar.Menu side="end">
-        <Navbar.MenuItem href="https://github.com/solarliner">GitHub</Navbar.MenuItem>
-        <Navbar.MenuItem href="https://gitlab.com/solarliner">GitLab</Navbar.MenuItem>
+      <Navbar.Menu active={isActive}>
+        <Navbar.Menu side="start">
+          <Navbar.MenuItem href="/#blog">Blog</Navbar.MenuItem>
+        </Navbar.Menu>
+        <Navbar.Menu side="end">
+          <Navbar.MenuItem href="https://github.com/solarliner">GitHub</Navbar.MenuItem>
+          <Navbar.MenuItem href="https://gitlab.com/solarliner">GitLab</Navbar.MenuItem>
+        </Navbar.Menu>
       </Navbar.Menu>
     </Navbar.Navbar>
   );
