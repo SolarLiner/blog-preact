@@ -16,7 +16,7 @@ const blogs: FunctionalComponent<Props> = props => {
       <Fragment>
         <Hero.Hero color="dark">
           <Hero.Header>
-            <Header/>>
+            <Header/>
           </Hero.Header>
           <Hero.Body>
             <h1 class="title">Loading...</h1>
