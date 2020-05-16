@@ -14,3 +14,10 @@
 
 .image
   margin: 0 auto
+
+.navbar.is-active
+  background: $background
+
+@each $name, $color in $colors
+  .hero.is-#{$name} .navbar.is-active
+    background-color: $color

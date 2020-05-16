@@ -22,6 +22,7 @@
   ],
   "devDependencies": {
     "@teamsupercell/typings-for-css-modules-loader": "^2.1.0",
+    "@types/classnames": "^2.2.10",
     "@types/marked": "^0.7.3",
     "@types/prismjs": "^1.16.0",
     "@typescript-eslint/eslint-plugin": "^2.23.0",

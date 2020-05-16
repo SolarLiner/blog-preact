@@ -1,12 +1,14 @@
 import { h } from "preact";
 import { Navbar } from "preact-bulma";
 import { useCallback, useState } from "preact/hooks";
+import classNames from "classnames";
 
 const Header = () => {
   const [isActive, setActive] = useState(false);
   const toggleActive = useCallback(() => setActive(!isActive), [isActive]);
+  const classes = classNames({"is-active": isActive});
   return (
-    <Navbar.Navbar>
+    <Navbar.Navbar class={classes}>
       <Navbar.Brand onToggleExpand={toggleActive} active={isActive} href="/">
         solarliner.me
       </Navbar.Brand>
