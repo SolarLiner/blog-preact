@@ -47,8 +47,8 @@ module.exports = async () => {
   const data = await require("./crawler").default(join(__dirname, "content", "blog"));
   const blogs = data.map(({ filename, ...f }) => ({ ...f, blogTitle: f.title, url: join("/blogs", f.id) }));
   return [
-    { url: "/", blogs },
-    { url: "/blogs", blogs },
+    { url: "/", title: "solarliner.me - Website of Nathan Graule", blogs },
+    { url: "/blogs", title: "solarliner.me - Blog posts", blogs },
     ...blogs
   ];
 };
