@@ -6,5 +6,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="preact-bulma" />
     <orderEntry type="module" module-name="md-crawler" />
+    <orderEntry type="library" name="netlify-identity-widget" level="application" />
   </component>
 </module>
