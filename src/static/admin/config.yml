@@ -1,6 +1,6 @@
 backend:
-  name: git-gateway
-  branch: master
+  name: github
+  branch: solarliner/blog-preact
 media_folder: src/assets
 public_folder: /assets
 collections:
