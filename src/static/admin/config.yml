@@ -1,6 +1,7 @@
 backend:
   name: github
-  branch: solarliner/blog-preact
+  branch: master
+  repo: solarliner/blog-preact
 media_folder: src/assets
 public_folder: /assets
 collections:
@@ -10,8 +11,61 @@ collections:
     folder: "content/blog"
     create: true
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
-      - { label: "Tags", name: "tags", widget: "string" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - label: Title
+        name: title
+        widget: string
+      - label: Subtitle
+        name: subtile
+        widget: string
+      - label: Author
+        name: author
+        widget: string
+        default: Nathan Graule
+        required: false
+      - label: Publish date
+        name: date
+        widget: datetime
+        format: YYYY-MM-DD
+      - label: Tags
+        name: tags
+        widget: list
+        field:
+          - label: Tag
+            widget: string
+      - label: Part of series
+        name: series
+        widget: object
+        required: false
+        fields:
+          - label: Part number
+            name: part
+            widget: number
+            valueType: int
+            min: 1
+            step: 1
+          - label: Previous part
+            name: prev
+            required: false
+            default: null
+            type: relation
+            collection: pages
+            valueField: "{{slug}}"
+            searchFields:
+              - title
+              - subtitle
+              - tags
+              - body
+            displayFields: "{{title}} by {{author}}"
+          - label: Next part
+            name: next
+            required: false
+            default: null
+            type: relation
+            collection: pages
+            valueField: "{{slug}}"
+            searchFields:
+              - title
+              - subtitle
+              - tags
+              - body
+            displayFields: "{{title}} by {{author}}"
