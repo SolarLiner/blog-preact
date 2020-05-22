@@ -13,13 +13,21 @@ collections:
         name: title
         widget: string
       - label: Subtitle
-        name: subtitle
+        name: subtile
         widget: string
       - label: Author
         name: author
         widget: string
         default: Nathan Graule
         required: false
+      - label: About project
+        name: project
+        required: false
+        widget: relation
+        collection: projects
+        searchFields:
+          - name
+        valueField: name
       - label: Publish date
         name: date
         widget: datetime
@@ -27,6 +35,10 @@ collections:
       - label: Tags
         name: tags
         widget: list
+        field:
+          label: Tag
+          name: tag
+          widget: string
       - label: Part of series
         name: series
         widget: object
@@ -65,5 +77,20 @@ collections:
               - body
             displayFields: "{{title}} by {{author}}"
       - label: Content
+        name: body
+        widget: markdown
+  - name: projects
+    label: Projects
+    label_singular: Project
+    folder: content/projects
+    create: true
+    fields:
+      - label: Name
+        name: name
+        widget: string
+      - label: Url
+        name: url
+        widget: string
+      - label: Description
         name: body
         widget: markdown
