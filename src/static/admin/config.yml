@@ -27,7 +27,10 @@ collections:
       - label: Tags
         name: tags
         widget: list
-        field: string
+        field:
+          label: Tag
+          name: tag
+          widget: string
       - label: Part of series
         name: series
         widget: object
