@@ -1,7 +1,5 @@
 backend:
-  name: github
-  branch: master
-  repo: solarliner/blog-preact
+  name: git-getaway
 media_folder: src/assets
 public_folder: /assets
 collections:
