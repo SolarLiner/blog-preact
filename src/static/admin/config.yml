@@ -1,5 +1,5 @@
 backend:
-  name: git-geteway
+  name: git-gateway
 media_folder: src/assets
 public_folder: /assets
 collections:
