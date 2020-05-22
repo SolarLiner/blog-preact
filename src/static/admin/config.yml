@@ -13,7 +13,7 @@ collections:
         name: title
         widget: string
       - label: Subtitle
-        name: subtile
+        name: subtitle
         widget: string
       - label: Author
         name: author
@@ -64,3 +64,6 @@ collections:
               - tags
               - body
             displayFields: "{{title}} by {{author}}"
+      - label: Content
+        name: body
+        widget: markdown
