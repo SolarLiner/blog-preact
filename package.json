@@ -57,7 +57,7 @@
     "classnames": "^2.2.6",
     "imagemin-mozjpeg": "^8.0.0",
     "imagemin-webpack-plugin": "^2.4.2",
-    "markdown-to-jsx": "^6.11.0",
+    "markdown-to-jsx": "^6.11.4",
     "marked": "^0.8.2",
     "parse-md": "^2.0.4",
     "preact": "^10.3.4",
