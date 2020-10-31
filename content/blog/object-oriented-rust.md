@@ -9,8 +9,6 @@ tags:
   - Object-Oriented
   - proc-macro
   - Procedural Macro
-series:
-  part: 1
 ---
 # Introduction
 
