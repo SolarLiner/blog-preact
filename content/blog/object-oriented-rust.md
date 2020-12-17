@@ -9,8 +9,6 @@ tags:
   - Object-Oriented
   - proc-macro
   - Procedural Macro
-series:
-  part: 1
 ---
 # Introduction
 
@@ -145,8 +143,8 @@ impl Superclass {
 
 #[derive(Copy, Clone, Debug, Default, Eq, PartialEq)]
 struct Subclass {
-    parent: Superclass
-    other: bool
+    parent: Superclass,
+    other: bool,
 }
 
 impl Deref for Subclass {
@@ -219,7 +217,7 @@ pub fn inherit(attr: TokenStream, item: TokenStream) -> TokenStream {
     } else {
         // Panic on tuple structs, which aren't supported
         panic!("Only named structs can be subclassed");
-    }
+    };
     // Get the identifiers out of the fields
     let field_idents = fields.iter().filter_map(|f| f.ident.as_ref()).collect::<Vec<_>>();
     // Get the subclass out of the attribute argument (`Subclass` in `#[inherit(Subclass)]`)

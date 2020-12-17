@@ -48,6 +48,7 @@ collections:
             name: part
             widget: number
             valueType: int
+            required: false
             min: 1
             step: 1
           - label: Previous part
