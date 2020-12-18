@@ -1,6 +1,6 @@
 ---
 title: Object-oriented Rust
-subtile: An experiment with procedural macros
+subtitle: An experiment with procedural macros
 author: Nathan Graule
 date: 2020-10-31
 tags:
