@@ -66,7 +66,6 @@
     "preact-markup": "^2.0.0",
     "preact-render-to-string": "^5.1.12",
     "preact-router": "^3.2.1",
-    "prismjs": "^1.22.0",
     "reading-time": "^1.2.1",
     "ts-node": "^9.1.1"
   },

@@ -7,7 +7,7 @@ import { Errors } from "io-ts";
 
 export default function crawl(root: string): Promise<Array<MarkdownNode<FrontmatterRaw & FrontmatterDerived>>> {
   // eslint-disable-next-line @typescript-eslint/unbound-method
-  return crawlMarkdown(root, flow(FrontmatterT.decode, unwrapDecode)).then(mds => mds.map(addDerivedMetadata));
+  return crawlMarkdown(root, flow(FrontmatterT.decode, unwrapDecode)).then(mds => mds.map(addDerivedMetadata).sort((a, b) => b.date.valueOf() - a.date.valueOf()));
 }
 
 const unwrap = <E>(printer: (err: E) => string) => <T>(either: Either<E, T>): T => {

@@ -1,7 +1,6 @@
 import { FunctionalComponent, h, toChildArray } from "preact";
 import Markup from "preact-markup";
 import marked from "marked";
-import { highlight, languages } from "prismjs";
 import "../style/highlight.sass";
 
 const DEFAULT_PROPS: Props = {
@@ -10,8 +9,8 @@ const DEFAULT_PROPS: Props = {
 };
 
 interface Props {
-  markdownOptions: object;
-  markupOptions: object;
+  markdownOptions: marked.MarkedOptions;
+  markupOptions: Record<string, unknown>;
   onRender?: (markup: string, renderer: MyRenderer) => void;
 }
 
@@ -61,19 +60,14 @@ export class MyRenderer extends marked.Renderer {
     this.links = [];
   }
 
-  heading(text, level) {
+  heading(text: string, level: number): string {
     const escapedText = text.toLowerCase().replace(/[^\w]+/g, "-");
     this.insertHeadingNode({ level, text, anchor: escapedText });
     return `<h${level} class="heading-anchor" id="${escapedText}">${text}</h${level}>`;
   }
 
-  code(text, lang) {
-    console.log({ text, lang });
-    const code = highlight(text, languages[lang], lang)
-      .split("\n")
-      .map(line => `<code class="language-${lang}">${line}</code>`)
-      .join("\n");
-    return `<pre class="language-${lang}">${code}</pre>`;
+  code(text: string, lang?: string): string {
+    return `<pre class="language-${lang}"><code class="language-${lang}">${text}</code></pre>`;
   }
 
   private insertHeadingNode(node: Omit<HeadingNode, "children">, list = this.links): void {
