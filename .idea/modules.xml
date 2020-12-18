@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../md-crawler/.idea/md-crawler.iml" filepath="$PROJECT_DIR$/../md-crawler/.idea/md-crawler.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../preact-bulma/.idea/preact-bulma.iml" filepath="$PROJECT_DIR$/../preact-bulma/.idea/preact-bulma.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/solarliner.me.iml" filepath="$PROJECT_DIR$/.idea/solarliner.me.iml" />
     </modules>
   </component>
