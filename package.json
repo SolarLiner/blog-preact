@@ -58,7 +58,7 @@
     "imagemin-mozjpeg": "^9.0.0",
     "imagemin-webpack-plugin": "^2.4.2",
     "markdown-to-jsx": "^7.1.0",
-    "marked": "^1.2.7",
+    "marked": "^2.0.0",
     "parse-md": "^2.0.4",
     "preact": "^10.5.7",
     "preact-bulma": "^2.0.0-next.3",
