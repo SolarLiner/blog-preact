@@ -39,7 +39,7 @@
     "jest-preset-preact": "^4.0.2",
     "markdown": "^0.5.0",
     "md-crawler": "^1.0.4",
-    "node-sass": "^5.0.0",
+    "node-sass": "^7.0.0",
     "node-sass-utils": "^1.1.2",
     "per-env": "^1.0.2",
     "preact-cli": "^3.0.5",
